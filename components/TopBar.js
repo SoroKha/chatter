@@ -33,13 +33,14 @@ export default function TopBar() {
 
 const styles = StyleSheet.create({
     twitter: {
-       position: 'relative',
-       top: '-5%'
+       position: 'absolute',
+
     },
     profile: {
         position: 'absolute',
         left: '5%',
-        top: '48%'
+        top: '45%'
+        
     },
     top: {
         backgroundColor: '#131F2C',

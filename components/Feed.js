@@ -1,13 +1,12 @@
 import * as React from 'react';
 import { Appbar, useTheme } from 'react-native-paper';
 import { StyleSheet, View, Text } from 'react-native';
+import Tweet from './Tweet';
 
 export default function Feed() {
     return(
     <View>
-        <Text>
-            Hello
-        </Text>
+        <Tweet />
     </View>
     );
   
