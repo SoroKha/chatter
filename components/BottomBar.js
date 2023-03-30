@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
-import { Appbar, Button, useTheme } from 'react-native-paper';
+import { StyleSheet, View } from 'react-native';
+import { Appbar, Badge } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const BOTTOM_APPBAR_HEIGHT = 55;
@@ -23,20 +23,28 @@ export default function BottomBar() {
       <Appbar.Action color='white' icon="magnify" onPress={() => {}} />
       <Appbar.Action color='white' icon="microphone" onPress={() => {}} />
       <Appbar.Action color='white' icon="bell" onPress={() => {}} />
-      <Appbar.Action color='white' icon="mail" onPress={() => {}} />
+      <View>
+        <Appbar.Action color='white' icon="mail" onPress={() => {}} style={styles.mail} />
+        <Badge size={10} style={styles.badge}></Badge>
+      </View>
     </Appbar>
   );
 };
 
 const styles = StyleSheet.create({
   bottom: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0,
     justifyContent: 'space-between',
     color: 'white',
     borderTopWidth: 1,
     borderTopColor: '#425264',
   },
+  mail: {
+    
+  },
+  badge: {
+    position: 'absolute',
+    top: 14,
+    right: 12,
+    backgroundColor: '#1D9BF0'
+  }
 });
