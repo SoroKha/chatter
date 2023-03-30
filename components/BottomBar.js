@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
-import { Appbar, useTheme } from 'react-native-paper';
+import { Appbar, Button, useTheme } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const BOTTOM_APPBAR_HEIGHT = 55;
@@ -35,6 +35,8 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     justifyContent: 'space-between',
-    color: 'white'
+    color: 'white',
+    borderTopWidth: 1,
+    borderTopColor: '#425264',
   },
 });

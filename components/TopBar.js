@@ -1,17 +1,16 @@
 import * as React from 'react';
-import { Appbar, Button, useTheme } from 'react-native-paper';
-import { StyleSheet, View, Text } from 'react-native';
+import { Appbar, Button } from 'react-native-paper';
+import { StyleSheet, View, Text, Image } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { TouchableOpacity } from 'react-native-web';
 
-const TOP_APPBAR_HEIGHT = 100;
+const TOP_APPBAR_HEIGHT = 115;
 
 export default function TopBar() {
     const { top } = useSafeAreaInsets();
     return(
-    <Appbar style={[styles.top, {height: TOP_APPBAR_HEIGHT + top}]} safeAreaInsets={{ top }}>
+    <Appbar style={[styles.top, {height: TOP_APPBAR_HEIGHT}]}>
         <View style={[styles.profile]}>
-            <Appbar.Action size={30} color='white' icon="account" onPress={() => {}} />
+            <Image source={require('../assets/profile_images/pfp.jpg')} style={[styles.profilePic]} />
         </View>
         <View style={[styles.twitter]}>
             <Appbar.Action size={30} color='#1C96E8' icon="twitter" onPress={() => {}} />
@@ -20,12 +19,14 @@ export default function TopBar() {
         <View style={[styles.tabs]}>
             <Button textColor='white' style={[styles.tab]} onPress={() => console.log('Pressed')}>
                 <Text>For you</Text>
-                <View></View>
             </Button>
             <Button textColor='white' style={[styles.tab]} onPress={() => console.log('Pressed')}>
+                <Text style={{color: 'white'}}>
                 Following
+                </Text>
             </Button>
         </View>
+        
     </Appbar>
     );
   
@@ -33,21 +34,25 @@ export default function TopBar() {
 
 const styles = StyleSheet.create({
     twitter: {
-       position: 'absolute',
-
+       
     },
     profile: {
         position: 'absolute',
-        left: '5%',
-        top: '45%'
+        left: 0
         
+    },
+    profilePic: {
+        width: 36,
+        height: 36,
+        borderRadius: 50,
+        marginLeft: 18
     },
     top: {
         backgroundColor: '#131F2C',
-        borderBottomWidth: '2px',
+        borderBottomWidth: 1,
         borderBottomColor: '#425264',
         display: 'flex',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     tabs: {
         display: 'flex',
@@ -59,7 +64,12 @@ const styles = StyleSheet.create({
     },
     tab: {
         width: '50%',
-        borderRadius: '0',
-        transition: 'none'
+        borderRadius: 0,
     },
+    blueLine: {
+        color: 'white',
+        borderBottomColor: '#1E9AF0',
+        borderBottomWidth: 2,
+        
+    }
   });
