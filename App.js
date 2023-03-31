@@ -3,18 +3,16 @@ import BottomBar from './components/BottomBar';
 import Feed from './views/Feed';
 import TopBar from './components/TopBar';
 import { StyleSheet } from 'react-native';
+import NewTweet from './components/NewTweet';
 
 export default function App() {
+
+
     return(
     <PaperProvider>
     <TopBar />
     <Feed />
-    <FAB
-      icon="plus"
-      style={styles.newTweet}
-      onPress={() => console.log('Pressed')}
-      variant='white'
-    />
+    <NewTweet />
     <BottomBar />
     </PaperProvider>
     );

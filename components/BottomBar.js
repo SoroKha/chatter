@@ -22,10 +22,14 @@ export default function BottomBar() {
       <Appbar.Action color='white' icon="home" onPress={() => {}} />
       <Appbar.Action color='white' icon="magnify" onPress={() => {}} />
       <Appbar.Action color='white' icon="microphone" onPress={() => {}} />
-      <Appbar.Action color='white' icon="bell" onPress={() => {}} />
+      <View>
+        <Appbar.Action color='white' icon="bell" onPress={() => {}} />
+        <Badge size={10} style={styles.notifBadge}></Badge>
+      </View>
+      
       <View>
         <Appbar.Action color='white' icon="mail" onPress={() => {}} style={styles.mail} />
-        <Badge size={10} style={styles.badge}></Badge>
+        <Badge size={10} style={styles.mailBadge}></Badge>
       </View>
     </Appbar>
   );
@@ -38,13 +42,16 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: '#425264',
   },
-  mail: {
-    
-  },
-  badge: {
+  mailBadge: {
     position: 'absolute',
     top: 14,
     right: 12,
+    backgroundColor: '#1D9BF0'
+  },
+  notifBadge: {
+    position: 'absolute',
+    top: 14,
+    right: 14,
     backgroundColor: '#1D9BF0'
   }
 });
