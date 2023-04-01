@@ -1,13 +1,15 @@
 import * as React from 'react';
 import { Appbar, Button } from 'react-native-paper';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity, TouchableHighlight } from 'react-native';
 
 const TOP_APPBAR_HEIGHT = 135;
 
 export default function TopBar() {
     return(
     <Appbar style={[styles.top, {height: TOP_APPBAR_HEIGHT}]}>
+        <TouchableOpacity style={styles.profilePicWrapper}>
         <Image source={require('../assets/profile_images/pfp.jpg')} style={styles.profilePic} />
+        </TouchableOpacity>
         <Appbar.Action size={30} color='#1C96E8' icon="twitter" onPress={() => {}} />
 
         <View style={styles.tabs}>
@@ -23,9 +25,11 @@ export default function TopBar() {
 };
 
 const styles = StyleSheet.create({
-    profilePic: {
+    profilePicWrapper: {
         position: 'absolute',
         left: 0,
+    },
+    profilePic: {
         width: 36,
         height: 36,
         borderRadius: 50,
@@ -46,7 +50,7 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     tab: {
-        width: '51%',
+        width: '50%',
         borderRadius: 0,
     },
 });

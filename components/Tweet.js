@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { Button, IconButton } from 'react-native-paper';
-import { StyleSheet, View, Text } from 'react-native';
+import { Button, IconButton, Portal } from 'react-native-paper';
+import { StyleSheet, View, Text, TouchableWithoutFeedback, Modal } from 'react-native';
 import { Image } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 
 export default function Tweet() {
     const [heart, setHeart] = React.useState('gray');
@@ -19,10 +20,18 @@ export default function Tweet() {
 
     return(
     <View style={styles.tweetBox}>
+
+    <TouchableWithoutFeedback onPress={() => {}}>
     <View style={styles.profilePicWrapper}>
+        <TouchableOpacity onPress={() => {console.log('pfp')}}>
         <Image source={require('../assets/profile_images/pfp.jpg')} style={[styles.profilePic]} />
-    </View>
+        </TouchableOpacity>
+        </View>
+    </TouchableWithoutFeedback>
+
     <View>
+        <TouchableWithoutFeedback onPress={() => {}}>
+        <View>
         <View style={{ flexDirection: 'row', paddingTop: 10 }}>
             <Text style={{ color: '#FFFFFF' }}>Soroush </Text> 
             <Text style={{ color: '#7C8896' }}>@SoroKha </Text>
@@ -34,7 +43,8 @@ export default function Tweet() {
             Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text.
         </Text>
         <Image source={require('../assets/icon.png')} style={styles.image} />
-
+        </View>
+        </TouchableWithoutFeedback>
         <View style={styles.interactions}>
             <Button icon="chat" textColor='gray'>
                 538

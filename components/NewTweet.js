@@ -94,8 +94,6 @@ const styles = StyleSheet.create({
     },
     tweetText: {
         width: '75%',
-        borderWidth: 1,
-        borderColor: 'red',
         height: '80%',
         fontSize: 20,
         color: 'white'
