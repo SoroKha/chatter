@@ -10,8 +10,6 @@ export default function Feed() {
     return(
     <>
         <TopBar />
-        
-          
         <ScrollView>
             <Tweet />
             <Tweet />

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Button, FAB, Modal, Portal, Provider as PaperProvider } from 'react-native-paper';
-import { Image, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, FAB, Modal, Portal } from 'react-native-paper';
+import { Image, StyleSheet, TextInput, View } from 'react-native';
 
 export default function NewTweet() {
     const [visible, setVisible] = React.useState(false);

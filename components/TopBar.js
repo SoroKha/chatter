@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Appbar, Button } from 'react-native-paper';
-import { StyleSheet, View, Text, Image, TouchableOpacity, TouchableHighlight } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 
 const TOP_APPBAR_HEIGHT = 135;
 

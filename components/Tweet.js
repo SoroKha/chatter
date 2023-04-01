@@ -1,12 +1,16 @@
 import * as React from 'react';
-import { Button, IconButton, Portal } from 'react-native-paper';
-import { StyleSheet, View, Text, TouchableWithoutFeedback, Modal } from 'react-native';
+import { Button } from 'react-native-paper';
+import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native';
 import { Image } from 'react-native';
 import { TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Tweet() {
+    const navigation = useNavigation();
+    
     const [heart, setHeart] = React.useState('gray');
     const [retweet, setRetweet] = React.useState('gray');
+
 
     function clickHeart() {
         if (heart === 'gray') setHeart('#F91880');
@@ -21,12 +25,12 @@ export default function Tweet() {
     return(
     <View style={styles.tweetBox}>
 
-    <TouchableWithoutFeedback onPress={() => {}}>
+    <TouchableWithoutFeedback onPress={() => {navigation.navigate('TweetExpand')}}>
     <View style={styles.profilePicWrapper}>
         <TouchableOpacity onPress={() => {console.log('pfp')}}>
         <Image source={require('../assets/profile_images/pfp.jpg')} style={[styles.profilePic]} />
         </TouchableOpacity>
-        </View>
+    </View>
     </TouchableWithoutFeedback>
 
     <View>
