@@ -1,10 +1,10 @@
 import * as React from 'react';
-import Tweet from '../components/Tweet';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import Sidebar from '../components/Sidebar';
-import TopBar from '../components/TopBar';
-import NewTweet from '../components/NewTweet';
+import TopBar from '../components/Feed/TopBar';
 import BottomBar from '../components/BottomBar';
+import Tweet from '../components/feed/Tweet';
+import NewTweet from '../components/feed/NewTweet';
 
 export default function Feed() {
     return(

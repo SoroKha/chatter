@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import * as React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Appbar, Badge } from 'react-native-paper';
+import { Image, StyleSheet, View } from 'react-native';
+import { Appbar, Badge, TextInput } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const BOTTOM_APPBAR_HEIGHT = 55;
@@ -11,6 +11,11 @@ export default function BottomBar() {
   const navigation = useNavigation();
 
   return (
+    <View style={{flexDirection: 'column'}}>
+    <View style={styles.replyBox}>
+        <Image source={require('../../assets/profile_images/pfp.jpg')} style={styles.profilePic} />
+        <TextInput style={styles.replyInput}></TextInput>
+    </View>
     <Appbar
       style={[
         styles.bottom,
@@ -34,6 +39,7 @@ export default function BottomBar() {
         <Badge size={10} style={styles.mailBadge}></Badge>
       </View>
     </Appbar>
+    </View>
   );
 };
 
@@ -41,8 +47,6 @@ const styles = StyleSheet.create({
   bottom: {
     justifyContent: 'space-between',
     color: 'white',
-    borderTopWidth: 1,
-    borderTopColor: '#425264',
   },
   mailBadge: {
     position: 'absolute',
@@ -55,5 +59,25 @@ const styles = StyleSheet.create({
     top: 14,
     right: 14,
     backgroundColor: '#1D9BF0'
+  },
+  replyBox: {
+    borderTopColor: 'white',
+    borderTopWidth: 0.5,
+    height: 50,
+    backgroundColor: 'red',
+    flexDirection: 'row'
+  },
+  profilePic: {
+    width: 36,
+    height: 36,
+    borderRadius: 50,
+    marginLeft: 18,
+    top: 6
+  },
+  replyInput: {
+    width: '80%',
+    height: 1,
+    left: 15,
+    borderRadius: 50
   }
 });

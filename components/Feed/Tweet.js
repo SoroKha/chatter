@@ -25,16 +25,16 @@ export default function Tweet() {
     return(
     <View style={styles.tweetBox}>
 
-    <TouchableWithoutFeedback onPress={() => {navigation.navigate('TweetExpand')}}>
+    <TouchableWithoutFeedback onPress={() => {navigation.navigate('TweetInfo')}}>
     <View style={styles.profilePicWrapper}>
         <TouchableOpacity onPress={() => {console.log('pfp')}}>
-        <Image source={require('../assets/profile_images/pfp.jpg')} style={[styles.profilePic]} />
+        <Image source={require('../../assets/profile_images/pfp.jpg')} style={[styles.profilePic]} />
         </TouchableOpacity>
     </View>
     </TouchableWithoutFeedback>
 
     <View>
-        <TouchableWithoutFeedback onPress={() => {}}>
+        <TouchableWithoutFeedback onPress={() => {navigation.navigate('TweetInfo')}}>
         <View>
         <View style={{ flexDirection: 'row', paddingTop: 10 }}>
             <Text style={{ color: '#FFFFFF' }}>Soroush </Text> 
@@ -46,7 +46,7 @@ export default function Tweet() {
         <Text style={styles.message}>
             Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text.
         </Text>
-        <Image source={require('../assets/icon.png')} style={styles.image} />
+        <Image source={require('../../assets/profile_images/pfp.jpg')} style={styles.image} />
         </View>
         </TouchableWithoutFeedback>
         <View style={styles.interactions}>

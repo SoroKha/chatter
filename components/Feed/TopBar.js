@@ -8,7 +8,7 @@ export default function TopBar() {
     return(
     <Appbar style={[styles.top, {height: TOP_APPBAR_HEIGHT}]}>
         <TouchableOpacity style={styles.profilePicWrapper}>
-        <Image source={require('../assets/profile_images/pfp.jpg')} style={styles.profilePic} />
+        <Image source={require('../../assets/profile_images/pfp.jpg')} style={styles.profilePic} />
         </TouchableOpacity>
         <Appbar.Action size={30} color='#1C96E8' icon="twitter" onPress={() => {}} />
 

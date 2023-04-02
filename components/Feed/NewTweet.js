@@ -30,7 +30,7 @@ export default function NewTweet() {
                 </View>
                 <View style={styles.modalBody}>
                     <View style={styles.profilePicWrapper}>
-                        <Image source={require('../assets/profile_images/pfp.jpg')} style={[styles.profilePic]} />
+                        <Image source={require('../../assets/profile_images/pfp.jpg')} style={[styles.profilePic]} />
                     </View>
                     <TextInput
                     style={styles.tweetText}
