@@ -1,15 +1,30 @@
 import * as React from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import Sidebar from '../components/Sidebar';
 import TopBar from '../components/Feed/TopBar';
 import BottomBar from '../components/BottomBar';
-import Tweet from '../components/feed/Tweet';
-import NewTweet from '../components/feed/NewTweet';
+import Tweet from '../components/Feed/Tweet';
+import NewTweet from '../components/Feed/NewTweet';
+import TweetInfo from './TweetInfo';
+import { Button } from 'react-native-paper';
+import { useNavigation } from '@react-navigation/native';
+import { Drawer } from 'react-native-drawer-layout';
+import DrawerContent from '../components/DrawerContent';
+
 
 export default function Feed() {
+    const [open, setOpen] = React.useState(false);
+
     return(
     <>
-        <TopBar />
+        <Drawer
+        open={open}
+        onOpen={() => setOpen(true)}
+        onClose={() => setOpen(false)}
+        renderDrawerContent={() => {
+            return <DrawerContent />;
+        }}
+        >
+        <TopBar drawer={setOpen} />
         <ScrollView>
             <Tweet />
             <Tweet />
@@ -22,6 +37,7 @@ export default function Feed() {
         </ScrollView>
         <NewTweet />
         <BottomBar />
+      </Drawer>
     </>
     );
 };

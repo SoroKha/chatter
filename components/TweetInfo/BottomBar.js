@@ -14,7 +14,14 @@ export default function BottomBar() {
     <View style={{flexDirection: 'column'}}>
     <View style={styles.replyBox}>
         <Image source={require('../../assets/profile_images/pfp.jpg')} style={styles.profilePic} />
-        <TextInput style={styles.replyInput}></TextInput>
+        <TextInput
+        style={styles.replyInput}
+        multiline={true}
+        placeholder='Tweet your reply'
+        placeholderTextColor='#8B97A5'
+        textAlignVertical='top'
+        
+        ></TextInput>
     </View>
     <Appbar
       style={[
@@ -38,6 +45,7 @@ export default function BottomBar() {
         <Appbar.Action color='white' icon="mail" onPress={() => {}} style={styles.mail} />
         <Badge size={10} style={styles.mailBadge}></Badge>
       </View>
+      <Appbar.Action color='white' icon="upload" onPress={() => {}} />
     </Appbar>
     </View>
   );
@@ -65,7 +73,8 @@ const styles = StyleSheet.create({
     borderTopWidth: 0.5,
     height: 50,
     backgroundColor: 'red',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    backgroundColor: '#151F2B'
   },
   profilePic: {
     width: 36,
@@ -76,8 +85,11 @@ const styles = StyleSheet.create({
   },
   replyInput: {
     width: '80%',
-    height: 1,
+    height: 80,
+    fontSize: 20,
+    color: 'white',
     left: 15,
-    borderRadius: 50
+    backgroundColor: '#29323E',
+    borderRadius: 30
   }
 });

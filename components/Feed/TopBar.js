@@ -1,15 +1,17 @@
 import * as React from 'react';
 import { Appbar, Button } from 'react-native-paper';
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
+import { Drawer } from 'react-native-drawer-layout';
 
 const TOP_APPBAR_HEIGHT = 135;
+export default function TopBar({ drawer }) {
 
-export default function TopBar() {
     return(
     <Appbar style={[styles.top, {height: TOP_APPBAR_HEIGHT}]}>
-        <TouchableOpacity style={styles.profilePicWrapper}>
-        <Image source={require('../../assets/profile_images/pfp.jpg')} style={styles.profilePic} />
+        <TouchableOpacity onPress={() => drawer(true)} style={styles.profilePicWrapper}>
+            <Image source={require('../../assets/profile_images/pfp.jpg')} style={styles.profilePic} />
         </TouchableOpacity>
+
         <Appbar.Action size={30} color='#1C96E8' icon="twitter" onPress={() => {}} />
 
         <View style={styles.tabs}>

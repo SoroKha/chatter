@@ -36,7 +36,6 @@ export default function NewTweet() {
                     style={styles.tweetText}
                     multiline={true}
                     autoFocus={true}
-                    keyboardAppearance='dark'
                     placeholder='Whats happening?'
                     placeholderTextColor='#8B97A5'
                     textAlignVertical='top'

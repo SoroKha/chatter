@@ -48,16 +48,16 @@ export default function TweetReplies() {
             </View>
             </TouchableWithoutFeedback>
             <View style={styles.interactions}>
-                <Button icon="chat" textColor='gray'>
+                <Button icon='chat-outline' textColor='gray'>
                     538
                 </Button>
-                <Button icon="recycle" textColor={retweet} onPress={clickRetweet}>
+                <Button icon='repeat-variant' textColor={retweet} onPress={clickRetweet}>
                     9,715
                 </Button>
-                <Button icon="heart" textColor={heart} onPress={clickHeart}>
+                <Button icon='heart-outline' textColor={heart} onPress={clickHeart}>
                     116K
                 </Button>
-                <Button icon="graph" textColor='gray'>
+                <Button icon='poll' textColor='gray'>
                     11.6M
                 </Button>
             </View>

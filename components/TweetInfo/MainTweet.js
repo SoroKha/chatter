@@ -15,12 +15,11 @@ export default function MainTweet() {
     }
 
     return(
-        <View style={{borderBottomColor: 'white',
-        borderBottomWidth: 0.5,}}>
+        <View style={{borderBottomColor: 'white', borderBottomWidth: 0.5}}>
         <View style={{flexDirection: 'row'}}>
         <View style={styles.profilePicWrapper}>
             <TouchableOpacity onPress={() => {console.log('pfp')}}>
-                <Image source={require('../../assets/profile_images/pfp.jpg')} style={[styles.profilePic]} />
+                <Image source={require('../../assets/profile_images/pfp.jpg')} style={styles.profilePic} />
             </TouchableOpacity>
         </View>
 
@@ -55,9 +54,9 @@ export default function MainTweet() {
                 </View>
             </View>
             <View style={styles.interactions}>
-                <Button icon="chat" textColor='gray' />
-                <Button icon="recycle" textColor={retweet} onPress={clickRetweet} />
-                <Button icon="heart" textColor={heart} onPress={clickHeart} />
+                <Button icon='chat-outline' textColor='gray' />
+                <Button icon='repeat-variant' textColor={retweet} onPress={clickRetweet} />
+                <Button icon='heart-outline' textColor={heart} onPress={clickHeart} />
                 <Button icon="bookmark" textColor='gray' />
                 <Button icon="upload" textColor='gray' />
             </View>
@@ -98,8 +97,8 @@ const styles = StyleSheet.create({
     },
     interactions: {
         flexDirection: 'row',
-        justifyContent: 'flex-start',
-        
+        justifyContent: 'center',
+        right: 15
     },
     stats: {
         color: 'white',
