@@ -4,15 +4,29 @@ import TopBar from '../components/Feed/TopBar';
 import BottomBar from '../components/BottomBar';
 import Tweet from '../components/Feed/Tweet';
 import NewTweet from '../components/Feed/NewTweet';
-import TweetInfo from './TweetInfo';
-import { Button } from 'react-native-paper';
-import { useNavigation } from '@react-navigation/native';
 import { Drawer } from 'react-native-drawer-layout';
 import DrawerContent from '../components/DrawerContent';
 
+import { db } from '../server/config/firebase';
+import { getDocs, collection } from 'firebase/firestore';
 
 export default function Feed() {
     const [open, setOpen] = React.useState(false);
+
+    const [tweetList, setTweetList] = React.useState([]);
+
+    React.useEffect(() => {
+        fetch("http://localhost:3001/tweets/getAllTweets", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin" : "*", 
+                "Access-Control-Allow-Credentials" : true 
+            },
+        })
+          .then((res) => { return res.json() })
+          .then((data) => setTweetList(data));
+        }, []);
 
     return(
     <>
@@ -26,9 +40,19 @@ export default function Feed() {
         >
         <TopBar drawer={setOpen} />
         <ScrollView>
-            <Tweet />
-            <Tweet />
-            <Tweet />
+            {tweetList.map((tweet) =>
+                <Tweet
+                key={tweet.id}
+                date={tweet.date}
+                id={tweet.id}
+                media={tweet.media}
+                views={tweet.views}
+                text={tweet.text}
+                userId={tweet.userId}
+                />
+            )}
+            
+            
             <View style={styles.feedEnd}>
                 <Text style={{textAlign: 'center', color: 'white'}}>
                     You've reached the end!

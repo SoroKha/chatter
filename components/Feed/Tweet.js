@@ -5,7 +5,7 @@ import { Image } from 'react-native';
 import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-export default function Tweet() {
+export default function Tweet(props) {
     const navigation = useNavigation();
     
     const [heart, setHeart] = React.useState('gray');
@@ -39,12 +39,12 @@ export default function Tweet() {
         <View style={{ flexDirection: 'row', paddingTop: 10 }}>
             <Text style={{ color: '#FFFFFF' }}>Soroush </Text> 
             <Text style={{ color: '#7C8896' }}>@SoroKha </Text>
-            <Text style={{ color: '#7C8896' }}>12h</Text> 
+            <Text style={{ color: '#7C8896' }}>{props.date}</Text> 
             <Button style={styles.more} icon='dots-horizontal' textColor='gray' onPress={() => {}}/>
         </View>
 
         <Text style={styles.message}>
-            Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text.
+            {props.text}
         </Text>
         <Image source={require('../../assets/profile_images/pfp.jpg')} style={styles.image} />
         </View>
@@ -60,7 +60,7 @@ export default function Tweet() {
                 116K
             </Button>
             <Button icon='poll' textColor='gray'>
-                11.6M
+                {props.views}
             </Button>
         </View>
     </View>
