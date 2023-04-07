@@ -4,6 +4,33 @@ import { Image, StyleSheet, TextInput, View } from 'react-native';
 
 export default function NewTweet() {
     const [visible, setVisible] = React.useState(false);
+    const [text, setText] = React.useState('');
+
+    function createTweet() {
+        const tweetData = {
+            id: Date.now(),
+            text: text,
+            media: "test.jpg",
+            userId: Date.now(),
+            date: Date.now()
+        };
+        
+        fetch("http://localhost:3001/tweets/createTweet", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*", 
+            "Access-Control-Allow-Credentials": true 
+          },
+          body: JSON.stringify(tweetData)
+        })
+          .then(res => res.json())
+          .then(data => console.log(data))
+          .catch(err => console.error(err));
+
+        hideModal();
+      }
+      
 
     const showModal = () => setVisible(true);
     const hideModal = () => setVisible(false);
@@ -26,13 +53,15 @@ export default function NewTweet() {
             >
                 <View style={styles.modalHeader}>
                   <Button textColor='white' onPress={hideModal} style={styles.cancelBtn}> Cancel </Button>
-                  <Button textColor='white' onPress={hideModal}  style={styles.tweetBtn}> Tweet </Button> 
+                  <Button textColor='white' onPress={createTweet}  style={styles.tweetBtn}> Tweet </Button> 
                 </View>
                 <View style={styles.modalBody}>
                     <View style={styles.profilePicWrapper}>
                         <Image source={require('../../assets/profile_images/pfp.jpg')} style={[styles.profilePic]} />
                     </View>
                     <TextInput
+                    value={text}
+                    onChangeText={text => setText(text)}
                     style={styles.tweetText}
                     multiline={true}
                     autoFocus={true}

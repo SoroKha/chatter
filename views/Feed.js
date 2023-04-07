@@ -15,7 +15,7 @@ export default function Feed() {
 
     const [tweetList, setTweetList] = React.useState([]);
 
-    React.useEffect(() => {
+    function getAllTweets() {
         fetch("http://localhost:3001/tweets/getAllTweets", {
             method: "GET",
             headers: {
@@ -26,6 +26,10 @@ export default function Feed() {
         })
           .then((res) => { return res.json() })
           .then((data) => setTweetList(data));
+    }
+
+    React.useEffect(() => {
+        getAllTweets();
         }, []);
 
     return(

@@ -4,12 +4,15 @@ import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native';
 import { Image } from 'react-native';
 import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { timeSince } from '../../helper/Date';
 
 export default function Tweet(props) {
     const navigation = useNavigation();
     
     const [heart, setHeart] = React.useState('gray');
     const [retweet, setRetweet] = React.useState('gray');
+
+    var date = timeSince(props.date);
 
 
     function clickHeart() {
@@ -39,7 +42,7 @@ export default function Tweet(props) {
         <View style={{ flexDirection: 'row', paddingTop: 10 }}>
             <Text style={{ color: '#FFFFFF' }}>Soroush </Text> 
             <Text style={{ color: '#7C8896' }}>@SoroKha </Text>
-            <Text style={{ color: '#7C8896' }}>{props.date}</Text> 
+            <Text style={{ color: '#7C8896' }}>{date}</Text> 
             <Button style={styles.more} icon='dots-horizontal' textColor='gray' onPress={() => {}}/>
         </View>
 
