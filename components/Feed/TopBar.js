@@ -12,8 +12,11 @@ export default function TopBar({ drawer }) {
             <Image source={require('../../assets/profile_images/pfp.jpg')} style={styles.profilePic} />
         </TouchableOpacity>
 
-        <Appbar.Action size={30} color='#1C96E8' icon="twitter" onPress={() => {}} />
-
+        
+        
+        <TouchableOpacity>
+        <Image source={require('../../assets/logo.png')} style={styles.logo}/>
+        </TouchableOpacity>
         <View style={styles.tabs}>
             <Button textColor='white' style={styles.tab} onPress={() => console.log('Pressed')}>
                 <Text>For you</Text>
@@ -30,6 +33,12 @@ const styles = StyleSheet.create({
     profilePicWrapper: {
         position: 'absolute',
         left: 0,
+    },
+    logo: {
+        width: 32,
+        height: 32,
+        borderRadius: 50,
+        
     },
     profilePic: {
         width: 36,

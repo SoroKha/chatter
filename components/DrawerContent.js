@@ -1,9 +1,22 @@
 import * as React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import { Button, IconButton } from 'react-native-paper';
-
+import { useNavigation } from '@react-navigation/native';
+import { signOut } from 'firebase/auth';
+import { auth } from '../server/config/firebase';
 
 export default function DrawerContent() {
+    const navigation = useNavigation();
+
+    const logout = async () => {
+        try {
+            await signOut(auth);
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+
     return(
         <View style={styles.drawer}>
         <View style={styles.content}>
@@ -44,6 +57,14 @@ export default function DrawerContent() {
                 <TouchableOpacity style={styles.tab} onPress={() => {}}>
                     <IconButton iconColor='white' style={styles.tabIcon} icon='account-group-outline' />
                     <Text style={styles.tabText}>Chatter Circle</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.tab} onPress={() => {navigation.navigate('SignUp')}}>
+                    <IconButton iconColor='white' style={styles.tabIcon} icon='account-group-outline' />
+                    <Text style={styles.tabText}>Sign Up</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.tab} onPress={() => {logout}}>
+                    <IconButton iconColor='white' style={styles.tabIcon} icon='account-group-outline' />
+                    <Text style={styles.tabText}>Logout</Text>
                 </TouchableOpacity>
             </View>
         </View>

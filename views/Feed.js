@@ -6,9 +6,7 @@ import Tweet from '../components/Feed/Tweet';
 import NewTweet from '../components/Feed/NewTweet';
 import { Drawer } from 'react-native-drawer-layout';
 import DrawerContent from '../components/DrawerContent';
-
-import { db } from '../server/config/firebase';
-import { getDocs, collection } from 'firebase/firestore';
+import { SERVER } from '@env';
 
 export default function Feed() {
     const [open, setOpen] = React.useState(false);
@@ -16,7 +14,7 @@ export default function Feed() {
     const [tweetList, setTweetList] = React.useState([]);
 
     function getAllTweets() {
-        fetch("http://localhost:3001/tweets/getAllTweets", {
+        fetch(SERVER + "/tweets/getAllTweets", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -25,7 +23,11 @@ export default function Feed() {
             },
         })
           .then((res) => { return res.json() })
-          .then((data) => setTweetList(data));
+          .then((data) => setTweetList(data))
+          .catch(function(error) {
+            alert(error);
+            throw error;
+          });
     }
 
     React.useEffect(() => {

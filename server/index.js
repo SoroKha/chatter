@@ -5,6 +5,7 @@ const getAllTweets = require('./get');
 const createTweetRouter = require('./create');
 
 const PORT = process.env.PORT || 3001;
+const HOST = '192.168.0.247';
 
 const app = express();
 app.use(cors());
@@ -21,6 +22,6 @@ router.use(getAllTweets);
 router.use(createTweetRouter);
 app.use('/tweets', router); 
 
-app.listen(PORT, () => {
-  console.log(`Server listening on ${PORT}`);
+app.listen(PORT, HOST, () => {
+  console.log(`Server listening on ${HOST}:${PORT}`);
 });
