@@ -7,6 +7,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import TweetInfo from './views/TweetInfo';
 import Landing from './views/Landing';
+import SignUp from './components/Landing/SignUp';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,8 +32,12 @@ export default function App() {
             component={TweetInfo}
           />
           <Stack.Screen
-            name='SignUp'
+            name='Landing'
             component={Landing}
+          />
+          <Stack.Screen
+            name='SignUp'
+            component={SignUp}
           />
         </Stack.Navigator>
       </NavigationContainer>

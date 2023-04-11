@@ -28,7 +28,7 @@ export default function Landing() {
             <Text style={styles.welcomeText}>happening in the</Text>
             <Text style={styles.welcomeText}>world right now.</Text>
 
-            <Button textColor='white' style={styles.signUpLayout} contentStyle={styles.signUpButton} onPress={() => {}}>Create account</Button>
+            <Button textColor='white' style={styles.signUpLayout} contentStyle={styles.signUpButton} onPress={() => {navigation.navigate('SignUp')}}>Create account</Button>
             <View style={{flexDirection: 'row'}}>
                 <View style={{backgroundColor: 'white', height: 0.25, flex: 1, alignSelf: 'center', marginLeft: 45}} />
                 <Text style={{color: 'white', alignSelf:'center', paddingHorizontal:5, fontSize: 15 }}>Or</Text>

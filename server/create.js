@@ -23,7 +23,34 @@ const createTweet = async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 };
-  
-router.post('/createTweet', createTweet);
 
-module.exports = router;
+const createUser = async (req, res) => {
+    try {
+        const { id, created, birthday, level, location, name, profilePicture, settings, tag } = req.body; 
+        const userCollectionRef = admin.firestore().collection('users');
+        const userRef = userCollectionRef.doc(); 
+        const accountData = {
+            id: id,
+            created: created,
+            birthday: birthday,
+            level: level,
+            location: location,
+            name: name,
+            profilePicture: profilePicture,
+            settings: settings,
+            tag: tag,
+        };
+        await userRef.set(accountData); 
+        res.json({ ...accountData }); 
+    }
+     catch (err) {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+    }
+};
+  
+const createRouter = express.Router();
+createRouter.post('/createTweet', createTweet);
+createRouter.post('/createUser', createUser);
+
+module.exports = createRouter;

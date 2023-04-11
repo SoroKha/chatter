@@ -58,7 +58,7 @@ export default function DrawerContent() {
                     <IconButton iconColor='white' style={styles.tabIcon} icon='account-group-outline' />
                     <Text style={styles.tabText}>Chatter Circle</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.tab} onPress={() => {navigation.navigate('SignUp')}}>
+                <TouchableOpacity style={styles.tab} onPress={() => {navigation.navigate('Landing')}}>
                     <IconButton iconColor='white' style={styles.tabIcon} icon='account-group-outline' />
                     <Text style={styles.tabText}>Sign Up</Text>
                 </TouchableOpacity>

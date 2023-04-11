@@ -14,7 +14,7 @@ export default function Feed() {
     const [tweetList, setTweetList] = React.useState([]);
 
     function getAllTweets() {
-        fetch(SERVER + "/tweets/getAllTweets", {
+        fetch(SERVER + "/getAllTweets", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

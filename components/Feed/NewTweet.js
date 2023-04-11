@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Button, FAB, Modal, Portal } from 'react-native-paper';
 import { Image, StyleSheet, TextInput, View } from 'react-native';
+import { SERVER } from '@env';
 
 export default function NewTweet() {
     const [visible, setVisible] = React.useState(false);
@@ -15,7 +16,7 @@ export default function NewTweet() {
             date: Date.now()
         };
         
-        fetch("http://localhost:3001/tweets/createTweet", {
+        fetch(SERVER + "/createTweet", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
