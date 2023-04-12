@@ -13,6 +13,7 @@ export default function Tweet(props) {
     const [retweet, setRetweet] = React.useState('gray');
 
     var date = timeSince(props.date);
+    
 
 
     function clickHeart() {
@@ -28,7 +29,7 @@ export default function Tweet(props) {
     return(
     <View style={styles.tweetBox}>
 
-    <TouchableWithoutFeedback onPress={() => {navigation.navigate('TweetInfo')}}>
+    <TouchableWithoutFeedback onPress={() => {navigation.navigate('TweetInfo', {props})}}>
     <View style={styles.profilePicWrapper}>
         <TouchableOpacity onPress={() => {console.log('pfp')}}>
         <Image source={require('../../assets/profile_images/pfp.jpg')} style={[styles.profilePic]} />
@@ -37,7 +38,7 @@ export default function Tweet(props) {
     </TouchableWithoutFeedback>
 
     <View>
-        <TouchableWithoutFeedback onPress={() => {navigation.navigate('TweetInfo')}}>
+        <TouchableWithoutFeedback onPress={() => {navigation.navigate('TweetInfo', {props})}}>
         <View>
         <View style={{ flexDirection: 'row', paddingTop: 10 }}>
             <Text style={{ color: '#FFFFFF' }}>Soroush </Text> 

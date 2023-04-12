@@ -24,3 +24,20 @@ export function timeSince(date) {
     }
     return Math.floor(seconds) + " seconds";
 }
+
+export function timeFormat(date, type) {
+  date = new Date(date);
+  
+  if (type === 'mainTweetInfo') {
+    const yyyy = date.getFullYear();
+    let mm = date.getMonth() + 1; // Months start at 0!
+    let dd = date.getDate();
+
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+    const formattedDate = date.toLocaleDateString('en-AU');
+    const formattedTime = date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+
+    return {formattedDate, formattedTime};
+  }
+}

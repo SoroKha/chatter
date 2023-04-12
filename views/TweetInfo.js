@@ -7,8 +7,10 @@ import TweetReply from '../components/TweetInfo/TweetReply';
 import BottomBar from '../components/TweetInfo/BottomBar';
 
 
-export default function TweetInfo() {
+export default function TweetInfo({route}) {
     const navigation = useNavigation();
+    const tweetProps = route.params.props;
+    
 
     return(
     <View style={styles.main}>
@@ -21,7 +23,7 @@ export default function TweetInfo() {
             <Text style={styles.tweetTxt}>Tweet</Text> 
         </View>
         <ScrollView style={styles.mainTweet}>
-            <MainTweet />
+            <MainTweet props={tweetProps} />
             <TweetReply />
             <TweetReply />
             <TweetReply />

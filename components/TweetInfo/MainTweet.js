@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Button } from 'react-native-paper';
+import { timeFormat } from '../../helper/Date';
 
-export default function MainTweet() {
+export default function MainTweet(props) {
     const [heart, setHeart] = React.useState('gray');
     const [retweet, setRetweet] = React.useState('gray');
     function clickHeart() {
@@ -13,6 +14,9 @@ export default function MainTweet() {
         if (retweet === 'gray') setRetweet('#00BA7C');
         if (retweet === '#00BA7C') setRetweet('gray');
     }
+    const mainTweet = props.props;
+    const date = timeFormat(mainTweet.date, 'mainTweetInfo').formattedDate
+    const time = timeFormat(mainTweet.date, 'mainTweetInfo').formattedTime
 
     return(
         <View style={{borderBottomColor: 'white', borderBottomWidth: 0.5}}>
@@ -31,13 +35,13 @@ export default function MainTweet() {
 
         <View style={styles.content}>
             <Text style={styles.message}>
-            Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text.
+            { mainTweet.text }
             </Text>
             <Image source={require('../../assets/profile_images/pfp.jpg')} style={styles.image} />
             <View style={styles.stats}>
                 <View style={styles.statsLine}>
-                    <Text style={styles.statsGrey}>1:01am • 1/4/2023 • </Text>
-                    <Text style={styles.statsBold}>502K </Text>
+                    <Text style={styles.statsGrey}>{ time } • { date } • </Text>
+                    <Text style={styles.statsBold}>{ mainTweet.views } </Text>
                     <Text style={styles.statsGrey}>Views</Text>
                 </View>
                 <View style={styles.statsLine}>
