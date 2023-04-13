@@ -23,7 +23,12 @@ export default function Feed() {
             },
         })
           .then((res) => { return res.json() })
-          .then((data) => setTweetList(data))
+          .then((data) => {
+            data.sort((a, b) => b.date - a.date);
+            setTweetList(data);
+            console.log(data);
+        }
+            )
           .catch(function(error) {
             alert(error);
             throw error;

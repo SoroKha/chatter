@@ -20,9 +20,9 @@ export function timeSince(date) {
     interval = seconds / 60;
 
     if (interval > 1) {
-      return Math.floor(interval) + " minutes";
+      return Math.floor(interval) + "m";
     }
-    return Math.floor(seconds) + " seconds";
+    return Math.floor(seconds) + "s";
 }
 
 export function timeFormat(date, type) {

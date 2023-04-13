@@ -1,7 +1,7 @@
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 import { useNavigation } from '@react-navigation/native';
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Button, IconButton, TextInput } from 'react-native-paper';
 import { SERVER } from '@env';
 
@@ -66,7 +66,10 @@ export default function SignUp() {
     return(
         <View style={styles.signUp}>
             <View style={styles.twitterIcon}>
-                <IconButton size={30} iconColor='#1C96E8' icon="twitter" onPress={() => {navigation.navigate('Landing')}} />
+                <TouchableOpacity onPress={() => {navigation.navigate('Landing')}}>
+                    <Image source={require('../../assets/logo.png')} style={styles.logo}/>
+                </TouchableOpacity>
+                
             </View>
             <View>
                 <Text style={styles.accountText}>Create your account</Text>
@@ -156,6 +159,12 @@ const styles = StyleSheet.create({
     twitterIcon: {
         alignItems: 'center',
         
+    },
+    logo: {
+        width: 32,
+        height: 32,
+        borderRadius: 50,
+        marginBottom: 20
     },
     accountText: {
         color: 'white',

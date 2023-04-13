@@ -1,10 +1,12 @@
 import * as React from 'react';
-import { Button } from 'react-native-paper';
+import { Button, IconButton } from 'react-native-paper';
 import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native';
 import { Image } from 'react-native';
 import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { timeSince } from '../../helper/Date';
+import Icon from 'react-native-paper/src/components/Icon'
+
 
 export default function Tweet(props) {
     const navigation = useNavigation();
@@ -54,18 +56,20 @@ export default function Tweet(props) {
         </View>
         </TouchableWithoutFeedback>
         <View style={styles.interactions}>
-            <Button icon='chat-outline' textColor='gray'>
-                538
+           
+            <Button icon='chat-outline' textColor='gray' labelStyle={{fontSize: 15}} style={styles.intButton}>
+                <Text style={{fontSize: 13}}>538</Text>
             </Button>
-            <Button icon='repeat-variant' textColor={retweet} onPress={clickRetweet}>
-                9,715
+            <Button icon='repeat-variant' textColor={retweet} labelStyle={{fontSize: 18}} onPress={clickRetweet} style={styles.intButton}>
+                <Text style={{fontSize: 13}}>9,715</Text>
             </Button>
-            <Button icon='heart-outline' textColor={heart} onPress={clickHeart}>
-                116K
+            <Button icon='heart-outline' textColor={heart} labelStyle={{fontSize: 15}} onPress={clickHeart} style={styles.intButton}>
+                <Text style={{fontSize: 13}}>116K</Text>
             </Button>
-            <Button icon='poll' textColor='gray'>
-                {props.views}
+            <Button icon='poll' textColor='gray' labelStyle={{fontSize: 15}} style={styles.intButton}>
+                <Text style={{fontSize: 13}}>{props.views}</Text>
             </Button>
+            <Button icon='upload' textColor='gray' labelStyle={{fontSize: 15}} style={styles.intButtonUpload} />
         </View>
     </View>
     </View>
@@ -109,4 +113,14 @@ const styles = StyleSheet.create({
     interactions: {
         flexDirection: 'row',
     },
+    intContent: {
+        flexDirection: 'row'
+    },
+    intButton: {
+        marginLeft: -10,
+        
+    },
+    intButtonUpload: {
+        marginLeft: 10
+    }
 });
